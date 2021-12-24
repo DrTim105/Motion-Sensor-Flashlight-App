@@ -1,6 +1,7 @@
 package com.salihutimothy.gestureflashlight
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Camera
 import android.hardware.camera2.CameraManager
 import android.os.Build
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button = findViewById(R.id.button)
+
+        val intent = Intent(this, GestureDetectionService::class.java)
+        startService(intent)
 
         button.setOnClickListener {
             if (button.text.toString() == "Switch On") {

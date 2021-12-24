@@ -61,7 +61,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
                                 e.printStackTrace()
                             }
                         } else {
-                            isFlashLightOn = utility.torchToggle("off")
+                            isFlashLightOn = utility.torchToggle("on")
                         }
                     }
                 }
@@ -70,6 +70,5 @@ class GestureDetectionService() : Service(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        TODO("Not yet implemented")
     }
 }
