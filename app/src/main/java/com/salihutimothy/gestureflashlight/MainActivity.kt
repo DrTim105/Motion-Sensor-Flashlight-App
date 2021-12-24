@@ -20,13 +20,16 @@ class MainActivity : AppCompatActivity() {
 
         button = findViewById(R.id.button)
 
-        if (button.text.toString() == "Switch On") {
-            button.text = "Switch Off"
-            toggle("on")
-        } else {
-            button.text = "Switch On"
-            toggle("off")
+        button.setOnClickListener {
+            if (button.text.toString() == "Switch On") {
+                button.text = "Switch Off"
+                toggle("on")
+            } else {
+                button.text = "Switch On"
+                toggle("off")
+            }
         }
+
     }
 
     private fun toggle(command: String) {
