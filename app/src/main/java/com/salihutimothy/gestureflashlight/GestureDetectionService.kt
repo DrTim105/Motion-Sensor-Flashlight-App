@@ -61,7 +61,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
                                 e.printStackTrace()
                             }
                         } else {
-                            isFlashLightOn = utility.torchToggle("on")
+                            isFlashLightOn = utility.torchToggle("off")
                         }
                     }
                 }
