@@ -19,7 +19,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private lateinit var vibrator: Vibrator
     var lastShakeTime = 0L
-    private val shakeThreshold = 250.0f
+    private val shakeThreshold = 270.0f
     private lateinit var utility : Util
 
     companion object {
@@ -82,4 +82,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
         super.onTaskRemoved(rootIntent)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
