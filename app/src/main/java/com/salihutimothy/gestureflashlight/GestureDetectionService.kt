@@ -33,7 +33,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
         utility = Util (this)
 
         val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST)
 
 
     }
@@ -74,4 +74,12 @@ class GestureDetectionService() : Service(), SensorEventListener {
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+
+        val intent = Intent(applicationContext, GestureDetectionService::class.java)
+        startService(intent)
+        super.onTaskRemoved(rootIntent)
+    }
+
 }

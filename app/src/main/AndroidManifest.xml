@@ -20,7 +20,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".GestureDetectionService"></service>
+        <service
+            android:name=".GestureDetectionService"
+            android:enabled="true"
+            android:stopWithTask="false" />
     </application>
 
 </manifest>
