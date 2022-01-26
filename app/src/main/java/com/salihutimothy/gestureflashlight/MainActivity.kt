@@ -24,15 +24,15 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, GestureDetectionService::class.java)
         startService(intent)
 
-        button.setOnClickListener {
-            if (button.text.toString() == "Switch On") {
-                button.text = "Switch Off"
-                toggle("on")
-            } else {
-                button.text = "Switch On"
-                toggle("off")
-            }
-        }
+//        button.setOnClickListener {
+//            if (button.text.toString() == "Switch On") {
+//                button.text = "Switch Off"
+//                toggle("on")
+//            } else {
+//                button.text = "Switch On"
+//                toggle("off")
+//            }
+//        }
 
     }
 
