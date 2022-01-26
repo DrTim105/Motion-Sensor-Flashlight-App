@@ -15,13 +15,16 @@ import kotlin.math.sqrt
 
 class GestureDetectionService() : Service(), SensorEventListener {
 
-    private val MIN_TIME_BETWEEN_SHAKE = 500
+    private val MIN_TIME_BETWEEN_SHAKE = 300
     private lateinit var sensorManager: SensorManager
     private lateinit var vibrator: Vibrator
     var lastShakeTime = 0L
-    var isFlashLightOn = false
-    private val shakeThreshold = 300.0f
+    private val shakeThreshold = 250.0f
     private lateinit var utility : Util
+
+    companion object {
+        var isFlashLightOn = false
+    }
 
     override fun onCreate() {
         super.onCreate()
