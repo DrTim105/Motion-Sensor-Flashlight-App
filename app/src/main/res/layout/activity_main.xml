@@ -26,7 +26,8 @@
         android:layout_height="200dp"
         android:padding="50dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_power"
+        app:neumorph_shapeType="flat"
+        android:src="@drawable/ic_power3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +35,7 @@
         app:neumorph_backgroundColor="#E0E5EC"
         app:neumorph_shadowColorDark="#A3B1C6"
         app:neumorph_shadowColorLight="#FFFFFF"
-        app:neumorph_shadowElevation="4dp" />
+        app:neumorph_shadowElevation="7dp" />
 
 <!--    <soup.neumorphism.NeumorphCardView-->
 <!--        android:id="@+id/neumorphCardView"-->
