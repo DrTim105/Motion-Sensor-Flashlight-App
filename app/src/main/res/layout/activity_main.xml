@@ -7,18 +7,6 @@
     android:background="#E0E5EC"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch On"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <soup.neumorphism.NeumorphFloatingActionButton
         android:id="@+id/button_Torch"
         style="@style/Widget.Neumorph.FloatingActionButton"
@@ -27,7 +15,7 @@
         android:padding="50dp"
         android:scaleType="fitCenter"
         app:neumorph_shapeType="flat"
-        android:src="@drawable/ic_power3"
+        android:src="@drawable/ic_power2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,59 +24,6 @@
         app:neumorph_shadowColorDark="#A3B1C6"
         app:neumorph_shadowColorLight="#FFFFFF"
         app:neumorph_shadowElevation="7dp" />
-
-<!--    <soup.neumorphism.NeumorphCardView-->
-<!--        android:id="@+id/neumorphCardView"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:neumorph_shadowColorDark="#A3B1C6"-->
-<!--        app:neumorph_shadowColorLight="#FFFFFF"-->
-<!--        app:neumorph_shadowElevation="1dp"-->
-<!--        app:neumorph_shapeType="pressed">-->
-
-
-<!--    </soup.neumorphism.NeumorphCardView>-->
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linearLayout"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/neumorphCardView"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/neumorphCardView"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <soup.neumorphism.NeumorphButton-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:fontFamily="@font/lato_bold"-->
-<!--            android:gravity="center"-->
-<!--            android:text="On"-->
-<!--            android:textColor="#00FF00"-->
-<!--            android:textSize="14sp"-->
-<!--            app:neumorph_shadowColorDark="#A3B1C6"-->
-<!--            app:neumorph_shadowColorLight="#FFFFFF"-->
-<!--            app:neumorph_shadowElevation="2dp"-->
-<!--            app:neumorph_shapeType="pressed" />-->
-
-<!--        <soup.neumorphism.NeumorphButton-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:fontFamily="@font/lato_bold"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Off"-->
-<!--            android:textSize="14sp"-->
-<!--            app:neumorph_shadowColorDark="#A3B1C6"-->
-<!--            app:neumorph_shadowColorLight="#FFFFFF"-->
-<!--            app:neumorph_shadowElevation="2dp"-->
-<!--            app:neumorph_shapeType="flat" />-->
-<!--    </LinearLayout>-->
 
     <TextView
         android:id="@+id/textView"
