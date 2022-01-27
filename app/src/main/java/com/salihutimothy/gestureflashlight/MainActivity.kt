@@ -7,12 +7,14 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.salihutimothy.gestureflashlight.GestureDetectionService.Companion.isFlashLightOn
+import soup.neumorphism.NeumorphFloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
     var isSwitchedOn = false
     private lateinit var button: Button
     private lateinit var utility : Util
+    private lateinit var buttonTorch : NeumorphFloatingActionButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,5 +40,7 @@ class MainActivity : AppCompatActivity() {
                 button.text = "Switch On"
             }
         }
+
+
     }
 }

@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <soup.neumorphism.NeumorphFloatingActionButton
-        android:id="@+id/flat_image_view"
+        android:id="@+id/button_Torch"
         style="@style/Widget.Neumorph.FloatingActionButton"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -98,26 +98,28 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/switch4"
-        app:layout_constraintEnd_toStartOf="@+id/switch4"
-        app:layout_constraintTop_toTopOf="@+id/switch4" />
+        app:layout_constraintBottom_toBottomOf="@+id/shakeDetection"
+        app:layout_constraintEnd_toStartOf="@+id/shakeDetection"
+        app:layout_constraintTop_toTopOf="@+id/shakeDetection" />
 
     <com.github.angads25.toggle.widget.LabeledSwitch
-        android:id="@+id/switch4"
+        android:id="@+id/shakeDetection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:fontFamily="@font/lato_bold"
         android:textSize="14sp"
-
-        app:colorBorder="#00FF00"
-        app:colorOff="#E0E5EC"
+        app:colorBorder="#A3B1C6"
+        app:colorOff="#FFFFFF"
         app:colorOn="#00FF00"
-        app:on="true"
+        app:on="false"
         app:textOff="OFF"
         app:textOn="ON"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+<!--    app:colorOff="#F44336"-->
+<!--    app:colorOff="#E0E5EC"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
