@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         utility = Util (this)
 
         val intent = Intent(this, GestureDetectionService::class.java)
-        startService(intent)
+//        startService(intent)
 
         button.setOnClickListener {
             if (!isFlashLightOn) {

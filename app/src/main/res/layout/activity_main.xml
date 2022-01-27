@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0E5EC"
     tools:context=".MainActivity">
 
 
@@ -12,8 +13,111 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Switch On"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <soup.neumorphism.NeumorphFloatingActionButton
+        android:id="@+id/flat_image_view"
+        style="@style/Widget.Neumorph.FloatingActionButton"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:padding="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_power"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:neumorph_backgroundColor="#E0E5EC"
+        app:neumorph_shadowColorDark="#A3B1C6"
+        app:neumorph_shadowColorLight="#FFFFFF"
+        app:neumorph_shadowElevation="4dp" />
+
+<!--    <soup.neumorphism.NeumorphCardView-->
+<!--        android:id="@+id/neumorphCardView"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:neumorph_shadowColorDark="#A3B1C6"-->
+<!--        app:neumorph_shadowColorLight="#FFFFFF"-->
+<!--        app:neumorph_shadowElevation="1dp"-->
+<!--        app:neumorph_shapeType="pressed">-->
+
+
+<!--    </soup.neumorphism.NeumorphCardView>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/neumorphCardView"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/neumorphCardView"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <soup.neumorphism.NeumorphButton-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:fontFamily="@font/lato_bold"-->
+<!--            android:gravity="center"-->
+<!--            android:text="On"-->
+<!--            android:textColor="#00FF00"-->
+<!--            android:textSize="14sp"-->
+<!--            app:neumorph_shadowColorDark="#A3B1C6"-->
+<!--            app:neumorph_shadowColorLight="#FFFFFF"-->
+<!--            app:neumorph_shadowElevation="2dp"-->
+<!--            app:neumorph_shapeType="pressed" />-->
+
+<!--        <soup.neumorphism.NeumorphButton-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:fontFamily="@font/lato_bold"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Off"-->
+<!--            android:textSize="14sp"-->
+<!--            app:neumorph_shadowColorDark="#A3B1C6"-->
+<!--            app:neumorph_shadowColorLight="#FFFFFF"-->
+<!--            app:neumorph_shadowElevation="2dp"-->
+<!--            app:neumorph_shapeType="flat" />-->
+<!--    </LinearLayout>-->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:text="Shake Detection"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch4"
+        app:layout_constraintEnd_toStartOf="@+id/switch4"
+        app:layout_constraintTop_toTopOf="@+id/switch4" />
+
+    <com.github.angads25.toggle.widget.LabeledSwitch
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/lato_bold"
+        android:textSize="14sp"
+
+        app:colorBorder="#00FF00"
+        app:colorOff="#E0E5EC"
+        app:colorOn="#00FF00"
+        app:on="true"
+        app:textOff="OFF"
+        app:textOn="ON"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
