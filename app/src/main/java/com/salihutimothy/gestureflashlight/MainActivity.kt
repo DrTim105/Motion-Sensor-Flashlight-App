@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
 
         labeledSwitch.setOnToggledListener { toggleableView, isOn ->
             isGestureOn = isOn
-
         }
+
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

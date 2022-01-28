@@ -21,8 +21,8 @@ class GestureDetectionService() : Service(), SensorEventListener {
     private lateinit var vibrator: Vibrator
     var lastShakeTime = 0L
     private val shakeThreshold = 270.0f
-    private lateinit var utility : Util
-    private var isOn : Boolean? = null
+    private lateinit var utility: Util
+    private var isOn: Boolean? = null
 
     companion object {
         var isFlashLightOn = false
@@ -32,7 +32,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
         super.onCreate()
         vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-        utility = Util (this)
+        utility = Util(this)
 
 
         val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -45,12 +45,12 @@ class GestureDetectionService() : Service(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        if (isGestureOn){
+        if (isGestureOn) {
             if (event != null) {
                 if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
                     val currentTime = System.currentTimeMillis()
 
-                    if ((currentTime - lastShakeTime) > MIN_TIME_BETWEEN_SHAKE){
+                    if ((currentTime - lastShakeTime) > MIN_TIME_BETWEEN_SHAKE) {
                         val x = event.values?.get(0)!!.toDouble()
                         val y = event.values?.get(1)!!.toDouble()
                         val z = event.values?.get(2)!!.toDouble()
@@ -63,7 +63,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
                             if (!isFlashLightOn) {
                                 try {
                                     isFlashLightOn = utility.torchToggle("on")
-                                } catch (e : CameraAccessException) {
+                                } catch (e: CameraAccessException) {
                                     e.printStackTrace()
                                 }
                             } else {

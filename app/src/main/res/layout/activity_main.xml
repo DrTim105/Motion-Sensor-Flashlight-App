@@ -55,7 +55,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    app:colorOff="#F44336"-->
-<!--    app:colorOff="#E0E5EC"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
