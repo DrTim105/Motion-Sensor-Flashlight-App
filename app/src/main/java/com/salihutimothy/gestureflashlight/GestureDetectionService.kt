@@ -10,6 +10,7 @@ import android.hardware.SensorManager
 import android.hardware.camera2.CameraAccessException
 import android.os.IBinder
 import android.os.Vibrator
+import com.salihutimothy.gestureflashlight.MainActivity.Companion.isGestureOn
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -21,6 +22,7 @@ class GestureDetectionService() : Service(), SensorEventListener {
     var lastShakeTime = 0L
     private val shakeThreshold = 270.0f
     private lateinit var utility : Util
+    private var isOn : Boolean? = null
 
     companion object {
         var isFlashLightOn = false
@@ -32,9 +34,9 @@ class GestureDetectionService() : Service(), SensorEventListener {
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         utility = Util (this)
 
+
         val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST)
-
 
     }
 
@@ -43,32 +45,35 @@ class GestureDetectionService() : Service(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        if (event != null) {
-            if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
-                val currentTime = System.currentTimeMillis()
+        if (isGestureOn){
+            if (event != null) {
+                if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
+                    val currentTime = System.currentTimeMillis()
 
-                if ((currentTime - lastShakeTime) > MIN_TIME_BETWEEN_SHAKE){
-                    val x = event.values?.get(0)!!.toDouble()
-                    val y = event.values?.get(1)!!.toDouble()
-                    val z = event.values?.get(2)!!.toDouble()
+                    if ((currentTime - lastShakeTime) > MIN_TIME_BETWEEN_SHAKE){
+                        val x = event.values?.get(0)!!.toDouble()
+                        val y = event.values?.get(1)!!.toDouble()
+                        val z = event.values?.get(2)!!.toDouble()
 
-                    val acceleration = sqrt(x.pow(2.0)) +
-                            y.pow(2.0) + z.pow(2.0) - SensorManager.GRAVITY_EARTH
+                        val acceleration = sqrt(x.pow(2.0)) +
+                                y.pow(2.0) + z.pow(2.0) - SensorManager.GRAVITY_EARTH
 
-                    if (acceleration > shakeThreshold) {
-                        lastShakeTime = currentTime
-                        if (!isFlashLightOn) {
-                            try {
-                                isFlashLightOn = utility.torchToggle("on")
-                            } catch (e : CameraAccessException) {
-                                e.printStackTrace()
+                        if (acceleration > shakeThreshold) {
+                            lastShakeTime = currentTime
+                            if (!isFlashLightOn) {
+                                try {
+                                    isFlashLightOn = utility.torchToggle("on")
+                                } catch (e : CameraAccessException) {
+                                    e.printStackTrace()
+                                }
+                            } else {
+                                isFlashLightOn = utility.torchToggle("off")
                             }
-                        } else {
-                            isFlashLightOn = utility.torchToggle("off")
                         }
                     }
                 }
             }
+
         }
     }
 

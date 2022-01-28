@@ -6,14 +6,10 @@ import android.hardware.camera2.CameraAccessException
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.github.angads25.toggle.widget.LabeledSwitch
 import com.salihutimothy.gestureflashlight.GestureDetectionService.Companion.isFlashLightOn
 import soup.neumorphism.NeumorphFloatingActionButton
-import com.github.angads25.toggle.widget.LabeledSwitch
-
-import com.github.angads25.toggle.interfaces.OnToggledListener
-import com.github.angads25.toggle.model.ToggleableView
 
 
 class MainActivity : AppCompatActivity(), View.OnTouchListener {
@@ -21,6 +17,9 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
     private lateinit var utility: Util
     private lateinit var buttonTorch: NeumorphFloatingActionButton
 
+    companion object {
+        var isGestureOn = false
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,20 +30,18 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
         utility = Util(this)
 
         val intent = Intent(applicationContext, GestureDetectionService::class.java)
-
+        startService(intent)
 
         buttonTorch.setOnTouchListener(this)
 
         val labeledSwitch = findViewById<LabeledSwitch>(R.id.shakeDetection)
+
+        isGestureOn = labeledSwitch.isOn
+
         labeledSwitch.setOnToggledListener { toggleableView, isOn ->
-            if (isOn) {
-                startService(intent)
-            } else {
-                stopService(intent)
-            }
+            isGestureOn = isOn
+
         }
-
-
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
