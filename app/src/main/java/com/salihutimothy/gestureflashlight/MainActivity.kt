@@ -9,8 +9,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.github.angads25.toggle.widget.LabeledSwitch
 import com.salihutimothy.gestureflashlight.GestureDetectionService.Companion.isFlashLightOn
-import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 import soup.neumorphism.NeumorphFloatingActionButton
 
 
