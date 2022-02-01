@@ -34,6 +34,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:layout_marginEnd="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/shakeDetection"
         app:layout_constraintEnd_toStartOf="@+id/shakeDetection"
         app:layout_constraintTop_toTopOf="@+id/shakeDetection" />
@@ -53,9 +54,26 @@
         app:textOn="ON"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        />
 
 
-
+    <soup.neumorphism.NeumorphFloatingActionButton
+        android:id="@+id/button_vibrate"
+        style="@style/Widget.Neumorph.FloatingActionButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:padding="20dp"
+        android:src="@drawable/ic_vibrate2"
+        android:tint="#A3B1C6"
+        app:neumorph_strokeColor="#A3B1C6"
+        app:neumorph_strokeWidth="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:neumorph_shadowElevation="2dp"
+        app:neumorph_shapeType="flat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
