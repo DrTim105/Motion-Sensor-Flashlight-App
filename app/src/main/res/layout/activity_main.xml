@@ -8,14 +8,14 @@
     tools:context=".MainActivity">
 
     <soup.neumorphism.NeumorphFloatingActionButton
-        android:id="@+id/button_Torch"
+        android:id="@+id/button_torch"
         style="@style/Widget.Neumorph.FloatingActionButton"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:padding="50dp"
         android:scaleType="fitCenter"
         app:neumorph_shapeType="flat"
-        android:src="@drawable/ic_power2"
+        android:src="@drawable/ic_power_off"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,57 +23,20 @@
         app:neumorph_backgroundColor="#E0E5EC"
         app:neumorph_shadowColorDark="#A3B1C6"
         app:neumorph_shadowColorLight="#FFFFFF"
-        app:neumorph_shadowElevation="7dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato"
-        android:text="Gesture"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_marginEnd="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/shakeDetection"
-        app:layout_constraintEnd_toStartOf="@+id/shakeDetection"
-        app:layout_constraintTop_toTopOf="@+id/shakeDetection" />
-
-    <com.github.angads25.toggle.widget.LabeledSwitch
-        android:id="@+id/shakeDetection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/lato_bold"
-        android:textSize="14sp"
-        app:colorBorder="#A3B1C6"
-        app:colorOff="#FFFFFF"
-        app:colorOn="#00FF00"
-        app:on="false"
-        app:textOff="OFF"
-        app:textOn="ON"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        />
-
+        app:neumorph_shadowElevation="6dp" />
 
     <soup.neumorphism.NeumorphFloatingActionButton
         android:id="@+id/button_vibrate"
         style="@style/Widget.Neumorph.FloatingActionButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:padding="20dp"
-        android:src="@drawable/ic_vibrate2"
-        android:tint="#A3B1C6"
-        app:neumorph_strokeColor="#A3B1C6"
-        app:neumorph_strokeWidth="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="22dp"
+        android:src="@drawable/ic_vibrate_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:neumorph_shadowElevation="2dp"
+        app:neumorph_shadowElevation="4dp"
         app:neumorph_shapeType="flat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

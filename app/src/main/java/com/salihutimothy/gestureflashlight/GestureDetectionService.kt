@@ -8,40 +8,41 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.hardware.camera2.CameraAccessException
+import android.os.Build
 import android.os.IBinder
 import android.os.Vibrator
+import android.os.VibratorManager
+import com.salihutimothy.gestureflashlight.MainActivity.Companion.isFlashLightOn
 import com.salihutimothy.gestureflashlight.MainActivity.Companion.isGestureOn
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class GestureDetectionService() : Service(), SensorEventListener {
+class GestureDetectionService : Service(), SensorEventListener {
 
     private val MIN_TIME_BETWEEN_SHAKE = 300
     private lateinit var sensorManager: SensorManager
     private lateinit var vibrator: Vibrator
-    var lastShakeTime = 0L
+    private var lastShakeTime = 0L
     private val shakeThreshold = 270.0f
     private lateinit var utility: Util
-    private var isOn: Boolean? = null
-
-    companion object {
-        var isFlashLightOn = false
-    }
 
     override fun onCreate() {
         super.onCreate()
-        vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+        vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager =
+                this.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+            vibratorManager.defaultVibrator
+        } else {
+            getSystemService(VIBRATOR_SERVICE) as Vibrator
+        }
+
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         utility = Util(this)
-
 
         val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST)
 
-    }
-
-    override fun onBind(intent: Intent?): IBinder? {
-        TODO("Not yet implemented")
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
@@ -73,7 +74,6 @@ class GestureDetectionService() : Service(), SensorEventListener {
                     }
                 }
             }
-
         }
     }
 
@@ -81,13 +81,12 @@ class GestureDetectionService() : Service(), SensorEventListener {
     }
 
     override fun onTaskRemoved(rootIntent: Intent?) {
-
         val intent = Intent(applicationContext, GestureDetectionService::class.java)
         startService(intent)
         super.onTaskRemoved(rootIntent)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onBind(intent: Intent?): IBinder? {
+        return null
     }
 }

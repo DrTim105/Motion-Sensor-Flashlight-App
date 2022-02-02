@@ -7,8 +7,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.github.angads25.toggle.widget.LabeledSwitch
-import com.salihutimothy.gestureflashlight.GestureDetectionService.Companion.isFlashLightOn
+import androidx.core.content.ContextCompat
 import soup.neumorphism.NeumorphFloatingActionButton
 
 
@@ -16,9 +15,11 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
 
     private lateinit var utility: Util
     private lateinit var buttonTorch: NeumorphFloatingActionButton
+    private lateinit var buttonVibrate: NeumorphFloatingActionButton
 
     companion object {
         var isGestureOn = false
+        var isFlashLightOn = false
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -26,7 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonTorch = findViewById(R.id.button_Torch)
+        buttonTorch = findViewById(R.id.button_torch)
+        buttonVibrate = findViewById(R.id.button_vibrate)
         utility = Util(this)
 
         val intent = Intent(applicationContext, GestureDetectionService::class.java)
@@ -34,12 +36,16 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
 
         buttonTorch.setOnTouchListener(this)
 
-        val labeledSwitch = findViewById<LabeledSwitch>(R.id.shakeDetection)
-
-        isGestureOn = labeledSwitch.isOn
-
-        labeledSwitch.setOnToggledListener { toggleableView, isOn ->
-            isGestureOn = isOn
+        buttonVibrate.setOnClickListener {
+            if (!isGestureOn) {
+                isGestureOn = true
+                buttonVibrate.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
+                buttonVibrate.setImageResource(R.drawable.ic_vibrate_on)
+            } else {
+                isGestureOn = false
+                buttonVibrate.setBackgroundColor(ContextCompat.getColor(this, R.color.app_bg))
+                buttonVibrate.setImageResource(R.drawable.ic_vibrate_off)
+            }
         }
 
     }
@@ -49,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
             buttonTorch -> {
                 when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        buttonTorch.setImageResource(R.drawable.ic_power3)
+                        buttonTorch.setImageResource(R.drawable.ic_power)
                         buttonTorch.setShapeType(1)
                     }
                     MotionEvent.ACTION_UP -> {
@@ -57,13 +63,13 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
                         if (!isFlashLightOn) {
                             try {
                                 isFlashLightOn = utility.torchToggle("on")
-                                buttonTorch.setImageResource(R.drawable.ic_power)
+                                buttonTorch.setImageResource(R.drawable.ic_power_on)
                             } catch (e: CameraAccessException) {
                                 e.printStackTrace()
                             }
                         } else {
                             isFlashLightOn = utility.torchToggle("off")
-                            buttonTorch.setImageResource(R.drawable.ic_power2)
+                            buttonTorch.setImageResource(R.drawable.ic_power_off)
                         }
                         buttonTorch.performClick()
                     }
