@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:neumorph_backgroundColor="#E0E5EC"
         app:neumorph_shadowColorDark="#A3B1C6"
-        app:neumorph_shadowColorLight="#FFFFFF"
+        app:neumorph_shadowColorLight="#ebeff3"
         app:neumorph_shadowElevation="6dp" />
 
     <soup.neumorphism.NeumorphFloatingActionButton
@@ -37,6 +37,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:neumorph_shadowElevation="4dp"
-        app:neumorph_shapeType="flat" />
+        app:neumorph_shapeType="flat"
+        app:neumorph_backgroundColor="#E0E5EC"
+        app:neumorph_shadowColorDark="#A3B1C6"
+        app:neumorph_shadowColorLight="#ebeff3"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
